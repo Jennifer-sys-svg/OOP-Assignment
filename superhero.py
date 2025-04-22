@@ -1,25 +1,23 @@
+# superhero.py
+
 class Superhero:
-    def __init__(self, name, power, universe):
+    def __init__(self, name, power, city):
         self.name = name
-        self.power = power
-        self.universe = universe
+        self._power = power      # protected attribute (encapsulation)
+        self.city = city
 
-    def introduce(self):
-        return f"I am {self.name} from {self.universe}, and my power is {self.power}!"
+    def use_power(self):
+        print(f"{self.name} uses {self._power} to protect {self.city}!")
 
-# Subclass
-class Mutant(Superhero):
-    def __init__(self, name, power, universe, mutation_type):
-        super().__init__(name, power, universe)
-        self.mutation_type = mutation_type
+    def reveal_identity(self):
+        return f"{self.name} is a superhero in {self.city}."
 
-    def introduce(self):
-        return f"I am {self.name}, a mutant from {self.universe} with {self.mutation_type} abilities!"
 
-# Example usage
-if __name__ == "__main__":
-    hero = Superhero("Wonder Woman", "Super Strength", "DC")
-    mutant = Mutant("Storm", "Weather Control", "Marvel", "Elemental")
+# Subclass (Inheritance + Polymorphism)
+class FlyingHero(Superhero):
+    def __init__(self, name, power, city, flight_speed):
+        super().__init__(name, power, city)
+        self.flight_speed = flight_speed
 
-    print(hero.introduce())
-    print(mutant.introduce())
+    def use_power(self):  # Polymorphism: override method
+        print(f"{self.name} flies at {self.flight_speed} km/h and uses {self._power} to save {self.city}!")

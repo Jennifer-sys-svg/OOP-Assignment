@@ -1,25 +1,20 @@
+# vehicles.py
+
 class Vehicle:
     def move(self):
-        return "Moving..."
+        print("The vehicle moves forward.")
+
 
 class Car(Vehicle):
     def move(self):
-        return "Driving 🚗"
+        print("The car is driving on the road. 🚗")
+
 
 class Plane(Vehicle):
     def move(self):
-        return "Flying ✈️"
+        print("The plane is flying in the sky. ✈️")
+
 
 class Boat(Vehicle):
     def move(self):
-        return "Sailing 🚢"
-
-# Example usage
-if __name__ == "__main__":
-    car = Car()
-    plane = Plane()
-    boat = Boat()
-
-    print(car.move())
-    print(plane.move())
-    print(boat.move())
+        print("The boat is sailing on the water. 🚤")
